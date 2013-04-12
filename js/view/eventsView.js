@@ -34,6 +34,7 @@ define(['jquery', 'jqueryui',
                 var self = this;
                 console.log('initialize');
 
+
 				this.collection.fetch({
                     reset: true,
                     success: function (model, attributes) {
@@ -41,6 +42,7 @@ define(['jquery', 'jqueryui',
                         //set conteners
                         self.setConteners();
                         self.showCurrent();
+                        console.log(self)
 //                        console.log(model);
                     }
                 });

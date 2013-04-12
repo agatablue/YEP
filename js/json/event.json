@@ -1,0 +1,41 @@
+[
+            {
+                "slide_title": "laloud application platform",
+                "slide_subheading": "deploy and scale powerful apps",
+                "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
+                "member": [ {
+                    "name": "Agata"
+                }],
+                "leader": [ {
+                    "name": "Agata",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                }],
+                "timestamp": 1367056800
+            },
+            {
+                "slide_title": "Sky application platform",
+                "slide_subheading": "marky and scale powerful apps",
+                "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
+                "member": [ {
+                    "name": "Agata"
+                }],
+                "leader": [ {
+                    "name": "Agata",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                }],
+                "timestamp": 1367316000
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w STReFIE",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [ {
+                    "name": "Agata"
+                }],
+                "leader": [ {
+                    "name": "Agata",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                }],
+                "timestamp": 1371204000
+            }
+  ]
