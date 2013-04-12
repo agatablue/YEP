@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!--css-->
+		<link rel="stylesheet" href="css/screen.css" />
+		<link rel="stylesheet" href="css/jquery-ui-1.9.1.custom.css" />
+		<!--css testing-->
+		<link rel="stylesheet" href="js/test/libs/qunit-1.10.0.css" />
+
+		<!--js-->
+        <script data-main="js/main" src="js/libs/require.js"></script>
+
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<!--backbone el-->
+		<div class="contener">
+			<header>
+				<a class="showForm" href="#">Add new event</a>
+			</header>
+			<form class="addEventForm" action="#">
+				<label>Title:</label><input id="slide_title" />
+				<label>Subtitle:</label><input id="slide_subheading" />
+				<label>Content:</label><input id="content" />
+				<input id="date" class="date" type="text" />
+				<button class="addEventButton">Add</button>
+			</form>
+			<div class="articles"></div>
+		</div>
+
+	    <!--backbone main template-->
+		<script id="eventTemplate" type="text/template">
+			<h1><%=slide_title %></h1>
+			<h2><%=slide_subheading %></h2>
+			<div> <%=content %> </div>
+			<div> <%=date %> </div>
+			<div> <%=timestamp %> </div>
+			<nav>
+				<a href="#" class="left">Left</a>
+				<a href="#" class="right">Right</a>
+			</nav>
+			<button class="edit">Edit</button>
+			<button class="delete">Delete</button>
+		</script>
+		
+		<!-- backbone  edit template-->
+		<script id="eventEditTemplate" type="text/template">
+			<form action="#">
+				<input class="slide_title" value="<%= slide_title %>" />
+				<input class="slide_subheading" value="<%= slide_subheading %>" />
+				<input class="content" value="<%= content %>" />
+				<input class="date" value="<%= date %>" />
+				<button class="save">Save</button>
+				<button class="cancel">Cancel</button>
+			</form>
+		</script>
+	</body>
+</html>
