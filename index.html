@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--css-->
+        <link rel="stylesheet" href="css/fonts.css" />
+        <link rel="stylesheet" href="css/screen.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+        <!--css testing-->
+        <link rel="stylesheet" href="js/test/libs/qunit-1.10.0.css" />
+
+        <!--js-->
+        <script data-main="js/main" src="js/libs/require-jquery.js"></script>
+
+    </head>
+    <body>
+        <header id="main">
+            <div class="header_pattern main_sprite"></div>
+            <div class="middle">
+                <a href="" class="logo main_sprite"></a>
+                <div class="login_panel right quicksandbook">
+                    <div class="inline">
+                        <span class="main_sprite loginIC"></span>
+                        <a href="">Sing In</a>
+                    </div>
+                    <div class="inline">
+                        <span class="main_sprite createacIC"></span>
+                        <a href="">Create account</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav id="main_menu" class="middle">
+            <div class="panel_right right quicksandbook">
+                <div class="inline">
+                    <span class="main_sprite micIC"></span>
+                     <a href="">Occurances</a>
+                </div>
+                 <div class="inline">
+                     <span class="main_sprite notIC"></span>
+                    <a href="">Notifications</a>
+                 </div>
+                <div class="info_tooltip inline">
+                </div>
+            </div>
+        </nav>
+
+        <section class="occurrence">
+            <!--backbone el-->
+            <div class="contener middle">
+                <nav class="event_menu quicksandbold">
+                    <a class="showForm" href="#">Add event <span class="cal_ic main_sprite"></span></a>
+                    <a class="closest_event" href="#">Closest event</a>
+                </nav>
+                <form class="addEventForm" action="#">
+                    <label><span>Title:</span>
+                        <input id="slide_title" /></label>
+                    <label><span>Subtitle:</span>
+                        <input id="slide_subheading" /></label>
+                    <label><span>Content:</span>
+                        <input id="content" /></label>
+                    <label><span>Data:</span>
+                        <input class="date" id="date" type="text" /></label>
+                    <label><span>Godzina:</span>
+                        <input class="time" id="time" type="text" /></label>
+                    <button class="addEventButton">Add</button>
+                </form>
+                <div class="clear"></div>
+                <div class="articles"></div>
+            </div>
+
+            <!--backbone main template-->
+            <script id="eventTemplate" type="text/template">
+
+<!--                <div class="info_event_panel">
+                    <div class="leader"><strong>Prowadzący: </strong> </div>
+                </div>-->
+
+                <div class="clear"> </div>
+                <div class="box_left">
+                    <div class="date">
+                        <span class="day"><%=day %></span><br />
+                        <span class="month"><%=month %></span><br/>
+                        <span class="year"><%=year %></span>
+                    </div>
+                    <span class="time_label">HOUR : MIN
+                    <div class="time"><%=time %></div>
+                    </span>
+                    <nav class="nav_event">
+                        <a class="inline btnnav pos_left" href="#"><span class="arrow_left main_sprite"></span>
+                           </a>
+                        <a class="inline btnnav pos_right" href="#">
+                            <span class="arrow_right main_sprite"></span>
+                        </a>
+                    </nav>
+                    <div class="settings">
+                        <span class="main_sprite setIC"></span>
+                        <span>Settings</span>
+                    </div>
+                     <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                    <div> <%=timestamp %></div>
+                </div>
+                <div class="box_center">
+                    <header class="event_header">
+                        <h1><%=slide_title %></h1>
+                        <h2><%=slide_subheading %></h2>
+                    </header>
+                    <div class="content_text"> <%=content %></div>
+                    
+                    <div class="members">
+                        <h4><span class="icMem main_sprite"></span>Members:</h4>
+                        <span class="arrow arrow_up main_sprite"></span>
+                        <hr class="line1"/>
+                        <div class="roll_hide">
+                            <%=member %>
+                        </div>
+                    </div>
+            
+                    <!--comments panel------------------------------->
+                    <div class="comment_panel">
+                        <h4><span class="icCom main_sprite"></span>Comments:</h4>
+                        <span class="arrow arrow_up main_sprite"></span>
+                        <hr/>
+                        <div class="roll_hide">
+                            <div class="create_comment">
+                                <textarea value="" class="new-comment" placeholder="add comments"/>
+                                <button class="add_comment"><span class="main_sprite"></span></button>
+                            </div>
+                            <div id="comments">
+                                <ul id="comments-list"></ul>
+                            </div>
+                                
+                            <div id="comments-stats"></div>
+                        </div>
+                    </div>
+                    <!--ends comments panel------------------------------->
+       
+             
+                </div>
+
+             
+                <div class="box_right">
+                    <span class="user_header">Leader</span>
+                    <div class="user_bg">
+                        <img src='<%=leader.avatarUrl %>' class="avatar" />
+                        <div class="meta_data">
+                            <div class="leader_name"> <%=leader.name %></div>
+                            <div class="leader_desc">Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog</div>
+                        </div>
+                    </div>
+                     <div class="block nmbOcur"><span>Numer of occurances: 12</span></div>
+                 
+                </div>
+                <div class="clear"></div>
+      
+            </script>
+
+            <!-- backbone  edit template-->
+            <script id="eventEditTemplate" type="text/template">
+                <form action="#">
+                    <input class="slide_title" value="<%= slide_title %>" />
+                    <input class="slide_subheading" value="<%= slide_subheading %>" />
+                    <input class="content" value="<%= content %>" />
+                    <input  value="<%= date %>" />
+                    <button class="save">Save</button>
+                    <button class="cancel">Cancel</button>
+                </form>
+            </script>
+
+
+            <!-- backbone  comment template-->
+            <script type="text/template" id="commentTemplate">
+                <div>
+                    <%=title %>
+                    <%=author %>
+                    <%=content %>
+                </div>
+            </script>
+
+        </section>
+        
+        
+        <footer>
+            
+        </footer>
+    </body>
+</html>
