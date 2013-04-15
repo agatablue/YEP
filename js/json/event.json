@@ -6,10 +6,11 @@
                 "member": [ {
                     "name": "Agata"
                 }],
-                "leader": [ {
-                    "name": "Agata",
+                "leader":  {
+                    "name": "Agata Malec",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
                     "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
-                }],
+                },
                 "timestamp": 1367056800
             },
             {
@@ -19,10 +20,11 @@
                 "member": [ {
                     "name": "Agata"
                 }],
-                "leader": [ {
+                "leader":  {
                     "name": "Agata",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
                     "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
-                }],
+                },
                 "timestamp": 1367316000
             },
             {
@@ -32,10 +34,11 @@
                 "member": [ {
                     "name": "Agata"
                 }],
-                "leader": [ {
+                "leader": {
                     "name": "Agata",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
                     "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
-                }],
+                },
                 "timestamp": 1371204000
             }
   ]

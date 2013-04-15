@@ -19,7 +19,7 @@ define(['jquery',
 		*/
             editTemplate: _.template($("#eventEditTemplate").html()),
 	
-            /*
+         /*
 		* delegating events
 		*/		
             events: {
@@ -27,6 +27,8 @@ define(['jquery',
                 "click button.save": "saveEdit",
                 "click button.cancel": "cancelEdit",
                 "click button.delete": "deleteEvent"
+            },
+            initialize: function(){
             },
             /*
 		* render single event
