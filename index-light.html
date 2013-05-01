@@ -3,12 +3,16 @@
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <!--css-->
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/screen_light.css" />
     <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/screen_mobile.css" media="screen and (max-width: 980px)">
     <!--css testing-->
     <link rel="stylesheet" href="js/test/libs/qunit-1.10.0.css" />
+
+    <!--[if gte IE 9]> <style type="text/css"> .gradient { filter: none; }  </style>  <![endif]-->
 
     <!--js-->
     <script data-main="js/main" src="js/libs/require-jquery.js"></script>
@@ -30,8 +34,23 @@
             </div>
         </header>
         <div class="header_pattern"></div>
-        <section>
-            <div class="bg_section"></div>
+
+        <section class="main_section">
+            <!--backbone el-->
+            <div class="contener middle main_width">
+                <div class="articles">
+                    <!--to do wrzucenia w template-->
+                    <article>
+                        <div class="left_side">
+                            <div class="bell_up"><span class="arrow_down"></span></div>
+                            <img src="images/user_images/img.jpg" class="event_img"/>
+                            <div class="user_img_bg">
+                                <img src="images/user_images/user_img.jpg" class="user_img"/>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 </body>
 </html>
