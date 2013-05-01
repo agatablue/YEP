@@ -48,18 +48,25 @@ body {
 
 /* #Typography
 ================================================== */
-   .data_text .day {
+   .data_text .day{
        font-family: 'ralewayheavy', Arial, Tahoma, sans-serif;
    }
+
+    .right_site h2 {
+        font-family: 'ralewayextrabold';
+    }
     .data_text .month,
     .data_time .time,
     .left_side p,
-    .left_side .read_more{
+    .left_side .read_more,
+    .right_site h1,
+    .right_site p{
         font-family: 'ralewayregular', Arial, Tahoma, sans-serif;
     }
     .data_text .year {
         font-family: 'ralewaymedium', Arial, Tahoma, sans-serif;
     }
+
 
 /* #Site
 ================================================== */
@@ -174,13 +181,6 @@ body {
         margin:-56px auto 0 auto;
         position:relative;
         text-align: center;
-    }
-    .main_section article .left_side .user_img{
-        /*border-radius:50%;*/
-        /*height:80px;*/
-        /*width:80px;*/
-        /*position: relative;*/
-        /*top:10px;*/
     }
     .frame{
         display:inline-block;
@@ -299,4 +299,43 @@ body {
         padding-right:9px;
         position: relative;
         top:2px;
+    }
+
+    .right_site {
+        display: inline-block;
+        vertical-align: top;
+        padding-left:20px;
+        width: 650px;
+    }
+    .right_site_up {
+        height:240px;
+    }
+
+    .right_site h1 {
+        font-size: 32px;
+        color: #393939;
+        line-height:32px;
+        margin-bottom:0;
+    }
+    .right_site h2 {
+        font-size: 24px;
+        margin-top: 10px;
+        color: #393939;
+        line-height:24px;
+    }
+    .right_site hr {
+        border: 0;
+        height: 1px;
+        background-color: #cbcbcb;
+    }
+    .right_site p {
+        font-size: 18px;
+        color: #898888;
+        line-height:26px;
+    }
+    .attendens h3 {
+        margin-top:0;
+    }
+    .attendens .att {
+        border-radius: 2px solid
     }
