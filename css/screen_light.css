@@ -1,0 +1,84 @@
+/* Table of Contents
+==================================================
+    #Basic
+    #Typography
+    #Links
+    #Site Styles
+*/
+
+/* #Basic
+================================================== */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    padding:0;  margin:0;
+    font-family: Arial, Tahoma, sans-serif;
+    color: #666666;
+    font-size: 13px;
+}
+.meta_data:after, .block:before{ content: ''; clear: both; display: block; }
+.right {float: right; }
+.left  {float: left; }
+
+.main_sprite {
+    background-image: url('../images/main_sprite.png');
+    background-repeat: no-repeat;
+    background-clip: border-box;
+}
+
+.main_width{
+    width:980px;
+    margin:0 auto;
+}
+/* #Links
+================================================== */
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+
+/* #Site
+================================================== */
+/*HEADER*/
+    .main_header {
+        background-color: #000;
+        height: 48px;
+        width:100%;
+    }
+        .main_header .logo {
+            display: inline-block;
+            width:67px;
+            height: 58px;
+            background: url("../images/yep_logo.png");
+        }
+        .main_header nav {
+            vertical-align: top;
+            display: inline-block;
+            padding-top:18px;
+        }
+        .main_header nav ul {
+            margin:0; padding:0;
+            list-style: none;
+        }
+            .main_header nav ul li{
+               display: inline-block;
+               padding-left:10px;
+            }
+        .panel_login {
+            float: right;
+            padding-top:18px;
+        }
+.header_pattern{
+    width:100%;
+    height: 12px;
+    background: url("../images/bg_header.jpg") repeat-x;
+}
