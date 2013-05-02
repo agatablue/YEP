@@ -291,6 +291,14 @@ body {
         text-align:left;
         font-size: 12px;
     }
+    .cat_italic {
+        font-style: italic;
+        color:#9A9A9A;
+        transition: color 0.2s ease-in-out 0s;
+     }
+        .cat_italic:hover {
+            color:#006f87;
+        }
     .text_bottom_right {
         text-align: right;
         padding:0 15px;
@@ -299,6 +307,10 @@ body {
     }
     .text_comment {
         padding-right:10px;
+        cursor:pointer;
+    }
+    .text_view {
+        cursor: pointer;
     }
 
     /*RIGHT SIDE*/
