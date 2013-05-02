@@ -199,6 +199,9 @@ body {
             .frame>img{
                 vertical-align:top;
             }
+            .frame img {
+                height:80px;
+            }
                 .frame, .frame:before{
                     -moz-border-radius:100em;
                     border-radius:100em;
