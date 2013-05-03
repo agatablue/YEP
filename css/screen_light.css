@@ -152,6 +152,7 @@ body {
         box-shadow: 0 0.5px 2px rgba(0,0,0,.36);
         text-align: center;
         padding-bottom:5px;
+        margin-bottom:20px;
     }
         .main_section article .left_side .bell_up {
             width:100%;
@@ -319,6 +320,7 @@ body {
         vertical-align: top;
         padding-left:80px;
         width: 650px;
+        padding-bottom:20px;
     }
         .right_site_up {
             height:240px;
@@ -346,10 +348,10 @@ body {
             color: #898888;
             line-height:26px;
         }
-        .attendens h3 {
+        .members h3 {
             margin-top:10px;
         }
-        .attendens .att {
+        .members .att {
             background: #f7f7f7; /* Old browsers */
             background: -moz-linear-gradient(top,  #f7f7f7 0%, #f2f2f2 100%); /* FF3.6+ */
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
@@ -373,7 +375,7 @@ body {
             margin:2px 2px 2px 0 ;
             transition: background 0.2s ease-in-out 0s;
         }
-        .attendens .att:hover {
+        .members .att:hover {
             background: #fff;
         }
 

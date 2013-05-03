@@ -23,6 +23,6 @@ require.config({
 /*
  * init eventsView and testing
  */
-require(['view/eventsView', 'test/eventsView_test', 'test/eventView_test' ], function(EventsView){
+require(['view/eventsView'], function(EventsView){
     var events = new EventsView;
 });

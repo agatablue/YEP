@@ -96,33 +96,12 @@
                                 </p>
                                 <a class="button green"  href="#">JOIN TO THIS EVENT</a>
                             </div>
-                            <div class="attendens">
+                            <div class="members">
                                 <h3> Attendens </h3>
-                                <span class="att">Jan Kowalski</span>
-                                <span class="att">Damian Sromek</span>
-                                <span class="att">Agata Malec Sromek</span>
-                                <span class="att">Jacek Szybowski - Kaczmarkowski</span>
-                                <span class="att">Chuck Norris</span>
-                                <span class="att">Maciej Maleńczuk</span>
-                                <span class="att">Michael Bubble</span>
-                                <span class="att">Shakira</span>
-                                <span class="att">Bob Dylan</span>
-                                <span class="att">Jan Kowalski</span>
-                                <span class="att">Jan Kowalski</span>
-                                <span class="att">Damian Sromek</span>
-                                <span class="att">Agata Malec Sromek</span>
-                                <span class="att">Jacek Szybowski - Kaczmarkowski</span>
-                                <span class="att">Chuck Norris</span>
-                                <span class="att">Maciej Maleńczuk</span>
-                                <span class="att">Michael Bubble</span>
-                                <span class="att">Shakira</span>
-                                <span class="att">Bob Dylan</span>
-                                <span class="att">Jan Kowalski</span>
-                                <span class="att">Jan Kowalski</span>
-                                <span class="att">Damian Sromek</span>
-                                <span class="att">Agata Malec Sromek</span>
-                                <span class="att">Jacek Szybowski - Kaczmarkowski</span>
-
+                                <%	_.each(member, function (item) { %>
+                                   <span class="att"> <%= item.member_name %> </span>
+                                <% });
+                                %>
 
                             </div>
                         </div>
@@ -131,14 +110,14 @@
 
                 <!-- backbone  edit template-->
                 <script id="eventEditTemplate" type="text/template">
-                    <form action="#">
-                        <input class="slide_title" value="<%= slide_title %>" />
-                        <input class="slide_subheading" value="<%= slide_subheading %>" />
-                        <input class="content" value="<%= content %>" />
-                        <input  value="<%= date %>" />
-                        <button class="save">Save</button>
-                        <button class="cancel">Cancel</button>
-                    </form>
+                    <!--<form action="#">-->
+                        <!--<input class="slide_title" value="<%= slide_title %>" />-->
+                        <!--<input class="slide_subheading" value="<%= slide_subheading %>" />-->
+                        <!--<input class="content" value="<%= content %>" />-->
+                        <!--<input  value="<%= date %>" />-->
+                        <!--<button class="save">Save</button>-->
+                        <!--<button class="cancel">Cancel</button>-->
+                    <!--</form>-->
                 </script>
 
 

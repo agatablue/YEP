@@ -3,9 +3,10 @@
                 "slide_title": "laloud application platform",
                 "slide_subheading": "deploy and scale powerful apps",
                 "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
-                "member": [ {
-                    "name": "Agata"
-                }],
+                "member": [
+                    { "member_name": "Agata Malec"},
+                    { "member_name": "Damian Sromek"}
+                ],
                 "leader":  {
                     "name": "Agata Malec",
                     "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
@@ -17,9 +18,10 @@
                 "slide_title": "Sky application platform",
                 "slide_subheading": "marky and scale powerful apps",
                 "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
-                "member": [ {
-                    "name": "Agata"
-                }],
+                "member": [
+                    { "member_name": "Chuck Norris"},
+                    { "member_name": "Angelina Jolie"}
+                ],
                 "leader":  {
                     "name": "Agata",
                     "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
@@ -31,9 +33,10 @@
                 "slide_title": "Biznesowe mixowanie w STReFIE",
                 "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
                 "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
-                "member": [ {
-                    "name": "Agata"
-                }],
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"}
+                ],
                 "leader": {
                     "name": "Agata",
                     "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",

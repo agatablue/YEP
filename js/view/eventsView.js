@@ -22,8 +22,8 @@ define(['jquery', 'jqueryui',
                 "click button.delete": "showCurrent"
             },
             /*
-		 * init function
-		 */		
+		     * init function
+		    */
             initialize: function(){
 
                 _.bindAll(this, 'render', 'renderLink',

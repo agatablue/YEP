@@ -34,7 +34,7 @@ define(['jquery',
 		* render single event
 		*/			
             render: function() {
-                   this.$el.html(this.template(this.model.toJSON()));
+                this.$el.html(this.template(this.model.toJSON()));
 
                 return this;
             },
