@@ -27,7 +27,7 @@
                 <nav>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Closest Event</a></li>
+                        <li><a href="#" class="closest_event">Closest Event</a></li>
                     </ul>
                 </nav>
                 <div class="panel_login">
@@ -41,9 +41,11 @@
         <section class="main_section">
             <!--backbone el-->
             <div class="contener middle main_width">
+
                 <div class="articles"></div>
                 <div class="edit_panel">
-                    <a class="showForm" href="#">Add event <span class="cal_ic main_sprite"></span></a>
+                    <header>Event Panel</header>
+                    <i class="icon-plus"></i><a class="showForm" href="#">Add event</a>
                 </div>
 
                 <!--to do wrzucenia w template-->
@@ -51,12 +53,14 @@
                         <div class="left_side">
                             <div class="bell_up color_blue"><span class="arrow_down"></span></div>
                             <img src="images/user_images/img.jpg" class="event_img"/>
+
                             <div class="user_img_bg">
                                 <span class="frame">
                                    <img src="<%=leader.avatarUrl %>" class="user_img"/>
                                 </span>
                             </div>
-
+                            <h2> <%=leader.name %></h2>
+                            <div style="border-top:1px dashed #dfdfdf;border-bottom:1px dashed  #dfdfdf; background-color: #f6f6f6; padding:8px 0;">
                             <div class="data_text">
                                 <span class="day"><%=day %></span>
                                 <span class="month"><%=month %></span>
@@ -64,10 +68,13 @@
                             </div>
                             <div class="text_time">
                                 <span class="time"><%=time %></span>
+                                <span class="place">Warsaw</span>
+                            </div>
                             </div>
                             <p>
                                 <%=leader.description %>
                             </p>
+
                             <span class="read_more">read more</span>
                             <hr/>
                             <div class="text_bottom_left">
@@ -90,7 +97,6 @@
                         <div class="right_site">
                             <div class="right_site_up">
                                 <h1><%=slide_title %></h1>
-                                <h2> <%=leader.name %></h2>
                                 <hr />
                                 <p>
                                     Every day new cool free design stuff for download :)

@@ -24,7 +24,7 @@ body {
     padding:0;  margin:0;
     font-family: Arial, Tahoma, sans-serif;
     color: #666666;
-    font-family: 'ralewaysemibold', Arial, Tahoma, sans-serif;
+    font-family: 'ralewayregular', Arial, Tahoma, sans-serif;
     font-size: 13px;
 }
  .block:before{ content: ''; clear: both; display: block; }
@@ -61,19 +61,18 @@ body {
 
 /* #Typography
 ================================================== */
-   .data_text .day{
+   .data_text .day,
+   .icon-plus {
        font-family: 'ralewayheavy', Arial, Tahoma, sans-serif;
    }
 
-    .right_site h2 {
-        font-family: 'ralewayextrabold';
-    }
-    .data_text .month,
+   .data_text .month,
     .data_time .time,
     .left_side p,
     .left_side .read_more,
     .right_site h1,
-    .right_site p{
+    .right_site p,
+    .edit_panel header {
         font-family: 'ralewayregular', Arial, Tahoma, sans-serif;
     }
     .data_text .year {
@@ -132,6 +131,33 @@ body {
         background: linear-gradient(to bottom,  #ececec 281px,#ffffff 281px); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
      }
+
+    .articles {
+        display:inline-block;
+    }
+    .edit_panel {
+        background-color: #f6f6f6;
+        padding:10px;
+        display:inline-block;
+        width: 160px;
+        vertical-align: top;
+        margin-top:40px;
+    }
+        .edit_panel header {
+            color : #00b4da;
+            font-size: 18px;
+            margin-bottom:10px;
+        }
+        .edit_panel  .showForm {
+            color: #a3a3a3;
+            margin-left:10px;
+            transition: color 0.2s ease-in-out 0s;
+         }
+
+        .edit_panel  .showForm:hover {
+            color: #00b4da;
+        }
+
 
     .main_section article {
         padding-top:40px;
@@ -225,7 +251,6 @@ body {
                 }
 
     .data_text {
-        padding-left:10px;
         display: inline-block;
         color: #006f87;
         text-align: center;
@@ -239,7 +264,7 @@ body {
         /*MONTH*/
         .data_text .month{
             display: block;
-            line-height:16px;
+            line-height:25px;
             font-size: 24px;
         }
         /*YEAR*/
@@ -257,6 +282,7 @@ body {
         /*TIME*/
         .text_time .time{
             font-size: 36px;
+            display:block;
         }
 
     .left_side p {
@@ -318,11 +344,12 @@ body {
         display: inline-block;
         vertical-align: top;
         padding-left:80px;
-        width: 550px;
+        margin-right:20px;
+        width: 490px;
         padding-bottom:20px;
     }
         .right_site_up {
-            height:190px;
+            height:200px;
         }
 
         .right_site h1 {
@@ -331,11 +358,11 @@ body {
             line-height:32px;
             margin: 5px 0 0 0;
         }
-        .right_site h2 {
+        .left_side h2 {
             font-size: 18px;
             margin-top: 10px;
-            color: #393939;
-            line-height:24px;
+            color: #818181;
+            line-height:12px;
         }
         .right_site hr {
             border: 0;
@@ -407,10 +434,6 @@ body {
             transition: background 0.2s ease-in-out 0s;
         }
 
-    .edit_panel{
-        display:inline-block;
-        width:100%;
-    }
 
 
     footer.main_footer {
@@ -493,6 +516,24 @@ body {
     .icon-comment-alt:hover, .icon-eye:hover {
         color: #59d2eb;
     }
+
+    .icon-plus {
+        color: #818181;
+        background-color:  #dfdfdf;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 2px;
+        font-weight: bold;
+        position: relative; top: 2px;
+        transition: color 0.2s ease-in-out 0s;
+        transition: background-color 0.2s ease-in-out 0s;
+    }
+
+    .icon-plus:hover {
+        color: #027a94;
+        background-color: #d6d5d5;
+    }
+
     .color_blue {
         color: #00B4DA;
         background-color: #00B4DA;
