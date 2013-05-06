@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/fontello.css" />
     <link rel="stylesheet" href="css/screen_light.css" />
+    <link rel="stylesheet" href="js/libs/fancybox/jquery.fancybox.css" />
     <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/screen_mobile.css" media="screen and (max-width: 980px)">
     <!--css testing-->
@@ -45,7 +46,23 @@
                 <div class="articles"></div>
                 <div class="edit_panel">
                     <header>Event Panel</header>
-                    <i class="icon-plus"></i><a class="showForm" href="#">Add event</a>
+                    <i class="icon-plus"></i><a class="showForm fancybox" href="#addEvent">Add event</a><i class="icon-down-dir"></i>
+
+                    <div style="width:400px;display: none;">
+                        <form class="addEventForm" id="addEvent" action="#">
+                            <label><span>Title:</span>
+                                <input id="slide_title" /></label>
+                            <label><span>Subtitle:</span>
+                                <input id="slide_subheading" /></label>
+                            <label><span>Content:</span>
+                                <input id="content" /></label>
+                            <label><span>Data:</span>
+                                <input class="date" id="date" type="text" /></label>
+                            <label><span>Godzina:</span>
+                                <input class="time" id="time" type="text" /></label>
+                            <button class="addEventButton">Add</button>
+                        </form>
+                    </div>
                 </div>
 
                 <!--to do wrzucenia w template-->

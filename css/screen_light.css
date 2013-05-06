@@ -136,7 +136,7 @@ body {
         display:inline-block;
     }
     .edit_panel {
-        background-color: #f6f6f6;
+        background-color: #fff;
         padding:10px;
         display:inline-block;
         width: 160px;
@@ -157,6 +157,10 @@ body {
         .edit_panel  .showForm:hover {
             color: #00b4da;
         }
+
+    .addEventForm {
+        display: none;
+    }
 
 
     .main_section article {

@@ -3,7 +3,7 @@ define(['jquery', 'jqueryui',
     'underscore',
     'collection/eventC',
     'model/eventM',
-    'view/eventView', 'view/commentsView', 'model/commentM'], function($, ui,  Backbone,_,EventC,EventM, EventView, CommentsView, CommentM){
+    'view/eventView', 'view/commentsView', 'model/commentM', 'fancybox'], function($, ui,  Backbone,_,EventC,EventM, EventView, CommentsView, CommentM){
 
         var EventsView = Backbone.View.extend({
             /*
@@ -268,10 +268,13 @@ define(['jquery', 'jqueryui',
 		 */
             showForm: function () {
                 // this.form.slideToggle();
-                if($(this.form).is(':hidden')) {
-                    $(this.form).slideDown();
-                    this.datePicker();
-                }
+//                if($(this.form).is(':hidden')) {
+//                    $(this.form).slideDown();
+//                    this.datePicker();
+//                } else {
+//                    $(this.form).slideUp();
+//                }
+                $('.fancybox').fancybox();
             
             },
             /*
