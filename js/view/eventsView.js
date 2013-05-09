@@ -112,6 +112,7 @@ define(['jquery', 'jqueryui',
 		 * parse TimeStampt to date
 		 */
             parseTimestampToDate: function(tmStamp){
+                console.log(tmStamp)
                 var newDateObj = {},
                 today = new Date(tmStamp*1000),
                 hh = today.getHours(),
@@ -121,6 +122,7 @@ define(['jquery', 'jqueryui',
                 newDateObj.day = today.getDate();
                 newDateObj.month = today.getMonth()+1; //January is 0!
                 newDateObj.time = hh + ':' +minutes;
+                console.log(newDateObj)
                 return newDateObj;
             //return '' + year  + '-' + month + '-' + day + ' ' + hh + ':' + minutes;
             },
