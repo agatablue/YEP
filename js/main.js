@@ -18,12 +18,11 @@ require.config({
 		jqueryui:				'libs/jquery-ui-1.9.1.custom',
 		underscore:				'libs/underscore',
         backbone:				'libs/backbone',
-       'backbone.localStorage': 'libs/backbone.localStorage',
+        'backbone.localStorage': 'libs/backbone.localStorage',
         fancybox:                'libs/fancybox/jquery.fancybox',
 		
         //testing
-		qunit:					'test/libs/qunit-1.10.0',
-        backbonemysql: 'libs/backbone-mysql'
+		qunit:					'test/libs/qunit-1.10.0'
     }
 });
 

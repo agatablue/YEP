@@ -3,14 +3,17 @@ define(['jquery', 'jqueryui',
     'underscore',
     'collection/eventC',
     'model/eventM',
-    'view/eventView', 'view/commentsView', 'model/commentM', 'fancybox'], function($, ui,  Backbone,_,EventC,EventM, EventView, CommentsView, CommentM){
+    'view/eventView',
+    'view/commentsView',
+    'model/commentM',
+    'fancybox'], function($, ui,  Backbone,_,EventC,EventM, EventView, CommentsView, CommentM){
 
         var EventsView = Backbone.View.extend({
-            /*
+        /*
 	    * main DOM element 
 	    */
             el: $(".contener"),
-            /*
+         /*
 		 * delegating events
 		 */
             events: {
@@ -32,9 +35,8 @@ define(['jquery', 'jqueryui',
                 this.model =  EventM;
 				
                 var self = this;
-                console.log('initialize');
 
-
+                //fetching data from json file
 				this.collection.fetch({
                     reset: true,
                     success: function (model, attributes) {
@@ -42,28 +44,27 @@ define(['jquery', 'jqueryui',
                         //set conteners
                         self.setConteners();
                         self.showCurrent();
-                        console.log(self)
-//                        console.log(model);
                     }
                 });
+                //after add do this two things: renderLink and showCurrent
                 this.collection.on("add", this.renderLink, this);
                 this.collection.on("add", this.showCurrent, this);
 
 
-			
+                //view responsible for comment panel
                 this.commentView = new CommentsView({
                     el: $(".comment_panel"), 
                     model: CommentM
                 })
             },
-            /*
+        /*
         * setting html elements
         */
             setConteners: function(){
                 this.form = this.$(".addEventForm");
                 this.tooltip = $('.info_tooltip');
             },
-            /*
+        /*
 		 * render single event and append it to the articles div
 		 */	
             renderLink: function(model){
@@ -76,23 +77,23 @@ define(['jquery', 'jqueryui',
                 });
                 this.$(".articles").append(view.render().el);
             },
-            /*
+         /*
 		 * render all collection
 		 */	
             render: function(){
                 //render collection
                 this.collection.each(this.renderLink);
-                // A good convention :)
+                // my good convention :)
                 return this; 
             },
-            /*
+          /*
 		 * after render all event, set correct dates generate from timestamp
 		 */
             setDates: function(item){
                 var tmStamp =  item.get("timestamp"),
                 //get object date
-
                 dateObj = this.parseTimestampToDate(tmStamp);
+
                 //set data object in template
                 item.set({
                     month: dateObj.month
@@ -107,7 +108,7 @@ define(['jquery', 'jqueryui',
                     time: dateObj.time
                     });
             },
-            /*
+         /*
 		 * parse TimeStampt to date
 		 */
             parseTimestampToDate: function(tmStamp){
@@ -123,38 +124,38 @@ define(['jquery', 'jqueryui',
                 return newDateObj;
             //return '' + year  + '-' + month + '-' + day + ' ' + hh + ':' + minutes;
             },
-            /*
-		 * return actual date
+         /*
+		 * return current date
 		 */
             getCurrentDate: function(){
                 var today = new Date();
                 return Math.round(today.getTime()/1000);
             },
-            /*
+         /*
 		 * return all timestamps
 		 */
             getEventTimestamp: function () {
                 return this.collection.pluck("timestamp");
             },
-            /*
+         /*
 		 * return index of the date the closest current date (not past)
 		 */
             getNextEvent: function (){
                 return _.sortedIndex(this.getEventTimestamp(), parseInt(this.getCurrentDate()));
             },
-            /*
+         /*
         * return number of events in database
         */
             countEvents: function(){
                 return this.collection.length;
             },
-            /*
+        /*
         * return max event Timestamp in database
         */
             maxIndexOfEvent: function(){
                 return _.max(this.getEventTimestamp());
             },
-            /*
+        /*
         * return number of events to do in the future from today
         * ex:  _.rest([2,3,67,43,2,3],2) returns [43,2,3]
         * and we need size this array
@@ -163,9 +164,9 @@ define(['jquery', 'jqueryui',
                 var rest =  _.rest(this.getEventTimestamp(),this.getNextEvent());
                 return rest.length;
             },
-            /*
+        /*
 		*  show current event
-	   */
+	    */
             showCurrent: function(){
                 // Some events in database?
                 var info = '';
@@ -186,13 +187,13 @@ define(['jquery', 'jqueryui',
                 this.$el.find("article").removeClass('active').hide();
                 this.$el.find("article").eq(this.getNextEvent()).addClass('active').show();
             },
-            /*
+        /*
 		 *  return index active event
 		 */
             getActiveEvent: function() {
                 return this.$(".articles").children(".active").index();
             },
-            /*
+         /*
 		 *  show next event and hide current
 		 */
             moveNext: function() {
@@ -203,7 +204,7 @@ define(['jquery', 'jqueryui',
                     articles.eq(numberOfActiveEvent + 1).addClass('active').fadeIn();
                 } 
             },
-            /*
+         /*
 		 *  show previous event and hide current
 		 */
             moveBack: function(){
@@ -214,7 +215,7 @@ define(['jquery', 'jqueryui',
                     articles.eq(numberOfActiveEvent - 1).addClass('active').fadeIn();
                 } 
             },
-            /*
+         /*
 		 *  parse Data to timestampt (using when user adding event)
 		 */
             parseDataToTimestamp: function(date){
@@ -222,32 +223,33 @@ define(['jquery', 'jqueryui',
                 myNewDate =myDate[0]+"/"+myDate[1]+"/"+myDate[2];
                 return Math.round(+new Date(myNewDate)/1000)
             },
-            /*
-		 *  padd event to collection
+         /*
+		 *  add event to collection
 		 */
             addEvent: function(e) {
-                e.preventDefault(); //not reload page
+                e.preventDefault();
                 var formData = {}, date, that=this;
-                //wypelnij objekt danymi z formularza
+                // fill object data from form
                 this.form.find('input').each(function (i, el ){
                     //if input field is not empty, save in new model content from input value.
                     if($(el).val() !== ''){
                         formData[el.id] = $(el).val();
                     }
                 });
-                //ustawiam nowy timestamp
+                //I'm setting the new timestamp
                 var time = formData['date'] + " " + formData['time'];
                 formData['timestamp'] = this.parseDataToTimestamp(time);
-                //dodaje event do kolekcji, comparator automatycznie sortuje
+                //and I'm adding event to the collection, comparator is sorting it automaticly
                 this.collection.add(new EventM(formData));
-                //ale dla pewnosci sortuje jeszcze raz
-                this.collection.sort();//nie musi tego byc
-                //sprawdzenie pozycji po sortowaniu nowego timestampu w bazie
+                //I'm testing sorting one more time
+                //TODO: delete this sorting
+                this.collection.sort();
+                //checking the position new timestapmp after sorting
                 var indexInDatabase = _.indexOf(this.getEventTimestamp(), formData['timestamp']);
 	
 			 
-                //przenieś element ale tylko wtedy gdy sa przynajmniej dwa 
-                //i pod warunkiem, ze nie przenosimy go na miejsce 0 
+                //move element but only when in databas we have 2 events
+                //and only when you don't want to move it to place numer one
                 if( this.countEvents() > 1  && indexInDatabase !=0 ){
                     this.$(".articles")
                     .find('article:last-child')
@@ -255,29 +257,21 @@ define(['jquery', 'jqueryui',
                         .find('article')
                         .eq(indexInDatabase-1));
                 }
-                //jeżeli przenosimy na pierwsze miejsce
+                //if you move event to place numer one
                 if(indexInDatabase == 0){
                     this.$(".articles").find('article:last-child').prependTo($(".articles"))
                 }
 			 
                 this.showCurrent();
             },
-            /*
+         /*
 		 *  show form 
 		 *  TODO: add editables
 		 */
             showForm: function () {
-                // this.form.slideToggle();
-//                if($(this.form).is(':hidden')) {
-//                    $(this.form).slideDown();
-//                    this.datePicker();
-//                } else {
-//                    $(this.form).slideUp();
-//                }
                 $('.fancybox').fancybox();
-            
             },
-            /*
+         /*
 		 *  activate datapicker 
 		 */
             datePicker: function () {
@@ -287,12 +281,12 @@ define(['jquery', 'jqueryui',
                 }); 
             
             },
-            /*--------------------------------Tooltip----------------------------------------------*/
+         /*--------------------------------Tooltip----------------------------------------------*/
             displayInfoInTooltip: function (text) {
                 this.tooltip.html(text).fadeIn();
             },
 
-            /*--------------------------------Test----------------------------------------------*/
+         /*--------------------------------Test----------------------------------------------*/
             first_test_func: function(val1, val2){
                 return val1 * val2;
             }

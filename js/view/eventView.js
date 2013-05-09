@@ -1,8 +1,9 @@
 define(['jquery',
     'backbone',
-    'underscore','collection/eventC' ],function($,Backbone,_,EventC){
+    'underscore',
+    'collection/eventC' ],function($,Backbone,_,EventC){
         var EventView = Backbone.View.extend({
-            /*
+        /*
 		* contener for single event
 		*/
             tagName: "article",
@@ -28,9 +29,7 @@ define(['jquery',
                 "click button.cancel": "cancelEdit",
                 "click button.delete": "deleteEvent"
             },
-            initialize: function(){
-            },
-            /*
+         /*
 		* render single event
 		*/			
             render: function() {
@@ -38,7 +37,7 @@ define(['jquery',
 
                 return this;
             },
-            /*
+        /*
 		* switch to edit mode
 		*/	
             editEvent: function () {
@@ -55,7 +54,7 @@ define(['jquery',
                 //remove view from page
                 this.remove();
             },
-            /*
+        /*
 		*  Cancel edit mode
 		*/
             cancelEdit: function () {
@@ -63,7 +62,7 @@ define(['jquery',
             },
             /*
 		* save change event
-		* TODO: repair this function
+		* TODO: refactor this function
 		*/
             saveEdit: function (e) {
                 e.preventDefault();
