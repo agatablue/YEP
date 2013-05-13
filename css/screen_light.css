@@ -542,3 +542,146 @@ body {
         color: #00B4DA;
         background-color: #00B4DA;
     }
+
+/* #Add event form
+================================================== */
+
+.form_contener {
+    width:100%;
+    background-color: #e9f0f4;
+    margin:0; padding: 0;
+}
+
+.wrapper_add_form {
+    width:900px;
+    margin:0px auto 0 auto;
+}
+
+.upload_files:after {
+    content: ''; clear: both; display: block;
+}
+.box_general_content h3, .box_general header  {
+    font-family: 'ralewaysemibold', Arial, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+.wrapper_add_form .left_panel_form, .wrapper_add_form .right_panel_form {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    padding:10px;
+}
+.box_general {
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+.box_general header {
+    background-color: #2e3641;
+    height:37px;
+    color: #fff;
+    padding:10px;
+    font-size: 15px;
+}
+.box_general_content {
+    padding: 10px;
+}
+.box_general_content h3 {
+    text-transform: uppercase;
+    color: #2e3641;
+    font-size: 24px;
+    margin-top:19px;
+    margin-bottom:5px;
+}
+
+/*Inputs */
+.my_input {
+    border:1px solid #dae4eb;
+    resize:none;
+}
+.general {
+    height: 50px;
+    width:100%;
+    padding:15px 8px;
+}
+.tags {
+    height:31px;
+    display: inline-block;
+    margin-top:8px;
+    width:76%;
+    padding: 8px;
+}
+.info {
+    color: #9eb2c0;
+    font-size: 12px;
+}
+/*buttons*/
+.btn {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    border: none;
+
+}
+
+.add_tag {
+    background-color: #2e3641;
+    padding:6px 12px;
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:8px;
+    cursor: pointer;
+}
+
+.load_file {
+    background-color: #007d97;
+    padding:6px 12px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:8px;
+    cursor: pointer;
+}
+
+
+/*upload files*/
+.upload_files {
+    background-color: #2e3641;
+    padding:10px;
+}
+
+.upload_arrow {
+    background-image: url("../images/upload_arrow.png");
+    width: 65px;
+    height:70px;
+    display: inline-block;
+}
+.upload_text {
+    vertical-align: top;
+    font-size: 26px;
+    width:195px;
+    display: inline-block;
+    padding-left:10px;
+    padding-top:5px;
+    color: #fff;
+}
+.upload_files .border_dashed {
+    border:2px dashed #fff;
+    height:130px;
+    text-align: center;
+    padding:27px;
+}
+
+.upload_right {
+    float: right;
+}
+.or_text {
+    position:relative;
+    top:14px;
+    margin-right:10px;
+    color:#fff;;
+}
+
+/*map*/
+.my_map {
+    width: 100%;
+}

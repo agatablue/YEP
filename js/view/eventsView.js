@@ -17,12 +17,12 @@ define(['jquery', 'jqueryui',
 		 * delegating events
 		 */
             events: {
-                "click .pos_left"  : "moveBack",
-                "click .pos_right" : "moveNext",
-                "click .showForm": "showForm",
-                "click .closest_event": "showCurrent",
-                "click .addEventButton" : "addEvent",
-                "click button.delete": "showCurrent"
+                "click .pos_left"       : "moveBack",
+                "click .pos_right"      : "moveNext",
+                "click .showForm"       : "showForm",
+                "click .closest_event"  : "showCurrent",
+                "click .addEvent"       : "showForm",
+                "click button.delete"   : "showCurrent"
             },
             /*
 		     * init function
@@ -61,8 +61,7 @@ define(['jquery', 'jqueryui',
         * setting html elements
         */
             setConteners: function(){
-                this.form = this.$(".addEventForm");
-                this.tooltip = $('.info_tooltip');
+                 this.tooltip = $('.info_tooltip');
             },
         /*
 		 * render single event and append it to the articles div
@@ -271,16 +270,23 @@ define(['jquery', 'jqueryui',
 		 *  TODO: add editables
 		 */
             showForm: function () {
-                $('.fancybox').fancybox();
+                $('.fancybox').fancybox({
+                    height: '1200',
+                    width: '980',
+                    autoResize: 'true'
+                });
+                this.datePicker();
             },
          /*
 		 *  activate datapicker 
 		 */
             datePicker: function () {
-                var dateInput = this.form.find('input#date');
-                $(dateInput).datepicker({
-                    dateFormat: 'yy-mm-dd'
-                }); 
+                var calendar = $('#calendar').datepicker({
+                    inline: true,
+                    firstDay: 1,
+                    showOtherMonths: true,
+                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                });
             
             },
          /*--------------------------------Tooltip----------------------------------------------*/

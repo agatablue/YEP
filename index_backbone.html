@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/fontello.css" />
     <link rel="stylesheet" href="css/screen_light.css" />
     <link rel="stylesheet" href="js/libs/fancybox/jquery.fancybox.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="js/libs/datepicker/css/calendar.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/screen_mobile.css" media="screen and (max-width: 980px)">
     <!--css testing-->
     <link rel="stylesheet" href="js/test/libs/qunit-1.10.0.css" />
@@ -48,21 +48,58 @@
                     <header>Event Panel</header>
                     <i class="icon-plus"></i><a class="showForm fancybox" href="#addEvent">Add event</a><i class="icon-down-dir"></i>
 
-                    <div style="width:400px;display: none;">
-                        <form class="addEventForm" id="addEvent" action="#">
-                            <label><span>Title:</span>
-                                <input id="slide_title" /></label>
-                            <label><span>Subtitle:</span>
-                                <input id="slide_subheading" /></label>
-                            <label><span>Content:</span>
-                                <input id="content" /></label>
-                            <label><span>Data:</span>
-                                <input class="date" id="date" type="text" /></label>
-                            <label><span>Godzina:</span>
-                                <input class="time" id="time" type="text" /></label>
-                            <button class="addEventButton">Add</button>
-                        </form>
+                    <div class="wrapper_add_form" id="addEvent" style="display:none;">
+                        <div class="left_panel_form">
+                            <div class="box_general">
+                                <header>General</header>
+                                <div class="box_general_content">
+                                    <h3>Title</h3>
+                                    <textarea rows="2"  class="my_input general"></textarea>
+                                    <h3>Description</h3>
+                                    <textarea rows="3"  class="my_input general"></textarea>
+                                </div>
+                            </div>
+                            <div class="box_general">
+                                <header>Tags</header>
+                                <div class="box_general_content">
+                                    <textarea rows="2"  class="my_input tags"></textarea>
+                                    <button class="btn add_tag">Add</button>
+                                    <span class="info">Separate tags with commas</span>
+                                </div>
+                            </div>
+                            <div class="upload_files">
+                                <div class="border_dashed">
+                                    <span class="upload_arrow"></span>
+                                    <span class="upload_text">Drop here Your presentation</span>
+                                </div>
+                                <div class="upload_right">
+                                    <span class="or_text">OR</span>
+                                    <button class="btn load_file">Load from disk</button>
+                                </div>
+                            </div>
+                            <div class="upload_files">
+                                <div class="border_dashed">
+                                    <span class="upload_arrow"></span>
+                                    <span class="upload_text">Drop here background</span>
+                                </div>
+                                <div class="upload_right">
+                                    <span class="or_text">OR</span>
+                                    <button class="btn load_file">Load from disk</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_panel_form">
+                            <div class="box_general">
+                                <header>Place & Date & Time</header>
+                                <div class="box_general_content">
+                                    <iframe class="my_map" height="270" frameBorder='0' src='http://a.tiles.mapbox.com/v3/agatablue.map-5uqbej76.html#3/0/0'></iframe> <textarea rows="2"  class="my_input tags"></textarea>
+                                    <button class="btn add_tag">Add</button>
+                                </div>
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
                 <!--to do wrzucenia w template-->
@@ -142,8 +179,7 @@
                         <button class="save">Save</button>
                         <button class="cancel">Cancel</button>
                     </form>
-                </script>
-
+               </script>
 
                 <!-- backbone  comment template-->
                 <script type="text/template" id="commentTemplate">

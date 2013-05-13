@@ -15,7 +15,7 @@ require.config({
 
   paths: {
         jquery:					'libs/jquery',
-		jqueryui:				'libs/jquery-ui-1.9.1.custom',
+		jqueryui:				'libs/datepicker/jquery-ui-datepicker.min',
 		underscore:				'libs/underscore',
         backbone:				'libs/backbone',
         'backbone.localStorage': 'libs/backbone.localStorage',
