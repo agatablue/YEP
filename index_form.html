@@ -17,8 +17,11 @@
     <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!--js-->
     <!--<script data-main="js/main" src="js/libs/require-jquery.js"></script>-->
-
-
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+    <!--[if lte IE 8]>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
+    <![endif]-->
 
 
 </head>
@@ -27,7 +30,7 @@
      <div class="top_form"></div>
        <div class="wrapper_add_form">
             <div class="left_panel_form">
-                <article class="box_general">
+                <div class="box_general">
                     <header>General</header>
                     <div class="box_general_content">
                         <h3>Title</h3>
@@ -35,16 +38,16 @@
                         <h3>Description</h3>
                         <textarea rows="3"  class="my_input general"></textarea>
                     </div>
-                </article>
-                <article class="box_general">
+                </div>
+                <div class="box_general">
                     <header>Tags</header>
                     <div class="box_general_content">
                         <textarea rows="2"  class="my_input tags"></textarea>
                         <button class="btn add_tag">Add</button>
                         <span class="info">Separate tags with commas</span>
                     </div>
-                </article>
-                <article class="upload_files">
+                </div>
+                <div class="upload_files">
                    <div class="border_dashed">
                         <span class="upload_arrow"></span>
                         <span class="upload_text">Drop here Your presentation</span>
@@ -53,8 +56,8 @@
                         <span class="or_text">OR</span>
                         <button class="btn load_file">Load from disk</button>
                     </div>
-                </article>
-                <article class="upload_files">
+                </div>
+                <div class="upload_files">
                     <div class="border_dashed">
                         <span class="upload_arrow"></span>
                         <span class="upload_text">Drop here background</span>
@@ -63,18 +66,24 @@
                         <span class="or_text">OR</span>
                         <button class="btn load_file">Load from disk</button>
                     </div>
-                </article>
+                </div>
             </div>
            <div class="right_panel_form">
-               <article class="box_general">
+               <div class="box_general">
                    <header>Place & Date & Time</header>
                    <div class="box_general_content">
-                       <iframe class="my_map" height="270" frameBorder='0' src='http://a.tiles.mapbox.com/v3/agatablue.map-5uqbej76.html#3/0/0'></iframe> <textarea rows="2"  class="my_input tags"></textarea>
-                       <button class="btn add_tag">Add</button>
+                       <div class="contener_for_map">
+                           <div id='map'></div>
+
+                           <script>
+                               L.mapbox.map('map', 'examples.map-vyofok3q')
+                                       .addControl(L.mapbox.geocoderControl('examples.map-vyofok3q'));
+                           </script>
+                       </div>
                    </div>
                    <div id="calendar"></div>
-                   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-                   <!--<script src="js/libs/datepicker/jquery-ui-datepicker.min.js"></script>-->
+                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+                   <script src="js/libs/datepicker/jquery-ui-datepicker.min.js"></script>
                    <script>
                        $('#calendar').datepicker({
                            inline: true,
@@ -83,7 +92,11 @@
                            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
                        });
                    </script>
-               </article>
+               </div>
+           </div>
+           <div class="panel_save">
+               <span>Cancel</span>
+               <button class="btn save_form">Save</button>
            </div>
        </div>
  </div>

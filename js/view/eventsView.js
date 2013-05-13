@@ -19,9 +19,8 @@ define(['jquery', 'jqueryui',
             events: {
                 "click .pos_left"       : "moveBack",
                 "click .pos_right"      : "moveNext",
-                "click .showForm"       : "showForm",
                 "click .closest_event"  : "showCurrent",
-                "click .addEvent"       : "showForm",
+                "click .showForm"       : "showForm",
                 "click button.delete"   : "showCurrent"
             },
             /*
@@ -111,7 +110,6 @@ define(['jquery', 'jqueryui',
 		 * parse TimeStampt to date
 		 */
             parseTimestampToDate: function(tmStamp){
-                console.log(tmStamp)
                 var newDateObj = {},
                 today = new Date(tmStamp*1000),
                 hh = today.getHours(),
@@ -121,7 +119,6 @@ define(['jquery', 'jqueryui',
                 newDateObj.day = today.getDate();
                 newDateObj.month = today.getMonth()+1; //January is 0!
                 newDateObj.time = hh + ':' +minutes;
-                console.log(newDateObj)
                 return newDateObj;
             //return '' + year  + '-' + month + '-' + day + ' ' + hh + ':' + minutes;
             },
@@ -231,7 +228,7 @@ define(['jquery', 'jqueryui',
                 e.preventDefault();
                 var formData = {}, date, that=this;
                 // fill object data from form
-                this.form.find('input').each(function (i, el ){
+                this.form.find('.my_input').each(function (i, el ){
                     //if input field is not empty, save in new model content from input value.
                     if($(el).val() !== ''){
                         formData[el.id] = $(el).val();
@@ -270,6 +267,7 @@ define(['jquery', 'jqueryui',
 		 *  TODO: add editables
 		 */
             showForm: function () {
+                console.log('tu')
                 $('.fancybox').fancybox({
                     height: '1200',
                     width: '980',
