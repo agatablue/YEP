@@ -287,6 +287,19 @@ define(['jquery', 'jqueryui',
                 });
             
             },
+            /*
+             *  google geocode service
+             */
+//            initializeGeocoder: function () {
+//                geocoder = new google.maps.Geocoder();
+//                var latlng = new google.maps.LatLng(-34.397, 150.644);
+//                var mapOptions = {
+//                    zoom: 8,
+//                    center: latlng,
+//                    mapTypeId: google.maps.MapTypeId.ROADMAP
+//                }
+//                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+//            },
          /*--------------------------------Tooltip----------------------------------------------*/
             displayInfoInTooltip: function (text) {
                 this.tooltip.html(text).fadeIn();

@@ -11,6 +11,13 @@ require.config({
           deps: ['backbone'],
           exports: 'Backbone'
       }
+//      ,
+//      gmaps: {
+//            deps: ['jquery']
+//       },
+//       main:{
+//            deps: ['jquery','gmaps']
+//        }
   },
 
   paths: {
@@ -20,6 +27,7 @@ require.config({
         backbone:				'libs/backbone',
         'backbone.localStorage': 'libs/backbone.localStorage',
         fancybox:                'libs/fancybox/jquery.fancybox',
+//        gmaps:                    'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false',
 		
         //testing
 		qunit:					'test/libs/qunit-1.10.0'
