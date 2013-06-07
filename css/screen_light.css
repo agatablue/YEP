@@ -732,15 +732,30 @@ body {
 
 /*map*/
 
-#map { position:absolute; top:0; bottom:0; width:100%; }
-.contener_for_map {
-    width: 100%;
-    position: relative;
-    min-height: 300px;
+#map-canvas, #map_canvas {
+    height: 100%;
 }
 
-.leaflet-control .mapbox-button {
-    background-color: #2E3641 !important;
-    color: #fff !important;
+@media print {
+    html, body {
+        height: auto;
+    }
+    #map-canvas, #map_canvas {
+        height: 650px;
+    }
+}
 
+.map_wrapper {
+    height:300px;
+    width:300px;
+    position: relative;
+}
+
+#panel {
+    position: absolute;
+    top: 5px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
 }

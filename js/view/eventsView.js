@@ -55,6 +55,9 @@ define(['jquery', 'jqueryui',
                     el: $(".comment_panel"), 
                     model: CommentM
                 })
+
+                //google map
+                this.initializeGeocoder();
             },
         /*
         * setting html elements
@@ -290,16 +293,49 @@ define(['jquery', 'jqueryui',
             /*
              *  google geocode service
              */
-//            initializeGeocoder: function () {
-//                geocoder = new google.maps.Geocoder();
-//                var latlng = new google.maps.LatLng(-34.397, 150.644);
-//                var mapOptions = {
-//                    zoom: 8,
-//                    center: latlng,
-//                    mapTypeId: google.maps.MapTypeId.ROADMAP
-//                }
-//                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-//            },
+            initializeGeocoder: function () {
+                var that = this;
+                var Localize =  function() {
+                    var map,
+                        geocoder;
+
+                    return {
+
+                        initialize: function() {
+
+                            console.log("adsasd")
+                            geocoder = new google.maps.Geocoder();
+                            var latlng = new google.maps.LatLng(-34.397, 150.644);
+                            var mapOptions = {
+                                zoom: 8,
+                                center: latlng,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            }
+                            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                        },
+                        codeAddress: function() {
+                            var address = document.getElementById('address').value;
+                            geocoder.geocode( { 'address': address}, function(results, status) {
+                                if (status == google.maps.GeocoderStatus.OK) {
+                                    map.setCenter(results[0].geometry.location);
+                                    var marker = new google.maps.Marker({
+                                        map: map,
+                                        position: results[0].geometry.location
+                                    });
+                                } else {
+                                    alert('Geocode was not successful for the following reason: ' + status);
+                                }
+                            });
+                        }
+                    }
+
+                }
+
+                var loc = new Localize ();
+                google.maps.event.addDomListener($(".map_wrapper")[0], 'mouseover', loc.initialize);
+
+
+           },
          /*--------------------------------Tooltip----------------------------------------------*/
             displayInfoInTooltip: function (text) {
                 this.tooltip.html(text).fadeIn();
