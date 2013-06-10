@@ -730,10 +730,16 @@ body {
     border-radius: 0 !important;
 }
 
-/*map*/
 
+
+/*calendar*/
+#calendar {
+    margin-top: 60px;
+}
+/*map*/
 #map-canvas, #map_canvas {
     height: 100%;
+    top: 54px;
 }
 
 @media print {
@@ -747,15 +753,32 @@ body {
 
 .map_wrapper {
     height:300px;
-    width:300px;
+    width:100%;
     position: relative;
 }
 
-#panel {
+#map_panel {
     position: absolute;
     top: 5px;
     z-index: 5;
     background-color: #fff;
     padding: 5px;
-    border: 1px solid #999;
+
+    width: 100%;
+}
+#address {
+    border: 1px solid #DAE4EB;
+    width: 75%;
+    margin-right: 18px;
+    padding: 8px;
+    height: 31px;
+}
+
+#codeFind {
+    border: none;
+    background-color: #2E3641;
+    color:#fff;
+    padding: 6px;
+    cursor: pointer;
+
 }

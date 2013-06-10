@@ -302,10 +302,8 @@ define(['jquery', 'jqueryui',
                     return {
 
                         initialize: function() {
-
-                            console.log("adsasd")
                             geocoder = new google.maps.Geocoder();
-                            var latlng = new google.maps.LatLng(-34.397, 150.644);
+                            var latlng = new google.maps.LatLng(52.24755, 21.193789);
                             var mapOptions = {
                                 zoom: 8,
                                 center: latlng,
@@ -332,7 +330,11 @@ define(['jquery', 'jqueryui',
                 }
 
                 var loc = new Localize ();
-                google.maps.event.addDomListener($(".map_wrapper")[0], 'mouseover', loc.initialize);
+                google.maps.event.addDomListener($(".showForm")[0], 'click', loc.initialize);
+
+                $('#codeFind').on('click', function() {
+                    loc.codeAddress();
+                });
 
 
            },
