@@ -312,6 +312,7 @@ define(['jquery', 'jqueryui',
                             map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
                         },
                         codeAddress: function() {
+                            map.setZoom(14);
                             var address = document.getElementById('address').value;
                             geocoder.geocode( { 'address': address}, function(results, status) {
                                 if (status == google.maps.GeocoderStatus.OK) {
