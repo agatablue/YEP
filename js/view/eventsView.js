@@ -294,13 +294,11 @@ define(['jquery', 'jqueryui',
              *  google geocode service
              */
             initializeGeocoder: function () {
-                var that = this;
                 var Localize =  function() {
                     var map,
                         geocoder;
 
                     return {
-
                         initialize: function() {
                             geocoder = new google.maps.Geocoder();
                             var latlng = new google.maps.LatLng(52.24755, 21.193789);
@@ -329,10 +327,11 @@ define(['jquery', 'jqueryui',
                     }
 
                 }
-
+                //new object for localize
                 var loc = new Localize ();
                 google.maps.event.addDomListener($(".showForm")[0], 'click', loc.initialize);
 
+                //when You click find button google finding adress
                 $('#codeFind').on('click', function() {
                     loc.codeAddress();
                 });
