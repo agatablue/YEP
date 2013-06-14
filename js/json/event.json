@@ -43,5 +43,35 @@
                     "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
                 },
                 "timestamp": 1371204000
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w Strefie",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"}
+                ],
+                "leader": {
+                    "name": "Agata Malec",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                },
+                "timestamp": 1373716800
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w Strefie",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"}
+                ],
+                "leader": {
+                    "name": "Agata Malec",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                },
+                "timestamp": 1391504000
             }
   ]

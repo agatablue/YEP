@@ -281,6 +281,37 @@ body {
                     cursor: pointer;
                 }
 
+    .data_time_bg {
+        border-top:1px dashed #dfdfdf;
+        border-bottom:1px dashed  #dfdfdf;
+        background-color: #f6f6f6;
+        padding:8px 0;
+    }
+    .wrap_date {
+        padding:10px;
+
+    }
+    .wrap_date .date{
+        display: inline-block;
+        height: 42px;
+        margin-top: 8px;
+        padding: 8px;
+        width: 77%;
+    }
+    .wrap_date .time{
+        display: inline-block;
+        height: 42px;
+        margin-top: 8px;
+        padding: 8px;
+        width: 66%;
+    }
+    .wrap_date label {
+        display: inline-block;
+    }
+    .wrap_date label span {
+        display:block;
+    }
+
     .data_text {
         display: inline-block;
         color: #006f87;
@@ -626,9 +657,9 @@ body {
     resize:none;
 }
 .general {
-    height: 50px;
+    height: 42px;
     width:100%;
-    padding:15px 8px;
+    padding:12px 8px;
 }
 .tags {
     height:31px;

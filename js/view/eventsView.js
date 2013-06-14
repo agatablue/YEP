@@ -17,11 +17,14 @@ define(['jquery', 'jqueryui',
 		 * delegating events
 		 */
             events: {
+                //when you want to see previous event
                 "click .pos_left"       : "moveBack",
+                //when you want to see next event
                 "click .pos_right"      : "moveNext",
+                //when you want to see closest event (menu)
                 "click .closest_event"  : "showCurrent",
-                "click .showForm"       : "showForm",
-                "click button.delete"   : "showCurrent"
+                //when you want to add event. Show form show you new window
+                "click .showForm"       : "showForm"
             },
             /*
 		     * init function
@@ -29,7 +32,7 @@ define(['jquery', 'jqueryui',
             initialize: function(){
 
                 _.bindAll(this, 'render', 'renderLink',
-                    'showCurrent' );
+                    'showCurrent', 'addEvent' );
                 this.collection = new EventC();
                 this.model =  EventM;
 				
@@ -49,6 +52,9 @@ define(['jquery', 'jqueryui',
                 this.collection.on("add", this.renderLink, this);
                 this.collection.on("add", this.showCurrent, this);
 
+               //it isn't Backbone event, 'cos the element is no longer inside Backbone View's
+               //keep handler on add event
+               this.$el.find('.save_form').on('click', this.addEvent);
 
                 //view responsible for comment panel
                 this.commentView = new CommentsView({
@@ -64,6 +70,7 @@ define(['jquery', 'jqueryui',
         */
             setConteners: function(){
                  this.tooltip = $('.info_tooltip');
+                 this.form = this.$el.find('.wrapper_add_form');
             },
         /*
 		 * render single event and append it to the articles div
@@ -220,26 +227,31 @@ define(['jquery', 'jqueryui',
 		 *  parse Data to timestampt (using when user adding event)
 		 */
             parseDataToTimestamp: function(date){
-                var myDate=date.split("-"),
+                var myDate=date.split("/"),
                 myNewDate =myDate[0]+"/"+myDate[1]+"/"+myDate[2];
-                return Math.round(+new Date(myNewDate)/1000)
+                return Math.round(+new Date(myNewDate)/1000);
             },
          /*
 		 *  add event to collection
 		 */
             addEvent: function(e) {
+                console.log('dodawanie:')
                 e.preventDefault();
-                var formData = {}, date, that=this;
-                // fill object data from form
+                var formData = {}, date;
+                // fill object data from textarea
                 this.form.find('.my_input').each(function (i, el ){
                     //if input field is not empty, save in new model content from input value.
                     if($(el).val() !== ''){
+
                         formData[el.id] = $(el).val();
+                        console.log(formData[el.id])
                     }
                 });
                 //I'm setting the new timestamp
-                var time = formData['date'] + " " + formData['time'];
+
+                var time = formData['datepicker_value'] + " " + formData['time'];
                 formData['timestamp'] = this.parseDataToTimestamp(time);
+                console.log(formData)
                 //and I'm adding event to the collection, comparator is sorting it automaticly
                 this.collection.add(new EventM(formData));
                 //I'm testing sorting one more time
@@ -247,8 +259,7 @@ define(['jquery', 'jqueryui',
                 this.collection.sort();
                 //checking the position new timestapmp after sorting
                 var indexInDatabase = _.indexOf(this.getEventTimestamp(), formData['timestamp']);
-	
-			 
+
                 //move element but only when in databas we have 2 events
                 //and only when you don't want to move it to place numer one
                 if( this.countEvents() > 1  && indexInDatabase !=0 ){
@@ -270,7 +281,6 @@ define(['jquery', 'jqueryui',
 		 *  TODO: add editables
 		 */
             showForm: function () {
-                console.log('tu')
                 $('.fancybox').fancybox({
                     height: '1200',
                     width: '980',
@@ -286,7 +296,8 @@ define(['jquery', 'jqueryui',
                     inline: true,
                     firstDay: 1,
                     showOtherMonths: true,
-                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    altField: '#datepicker_value'
                 });
             
             },
