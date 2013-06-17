@@ -102,7 +102,7 @@
                                 <div class="box_general_content">
                                         <div class="map_wrapper">
                                             <div id="map_panel">
-                                                <input id="address"  type="textbox" value="Warszawa">
+                                                <input id="address"  type="textbox" value="Warszawa" class="my_input">
                                                 <input id="codeFind" type="button" value="Szukaj">
                                             </div>
                                             <div id="map-canvas"></div>
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="text_time">
                                     <span class="time"><%=time %></span>
-                                    <span class="place">Warsaw</span>
+                                    <span class="place"><%=address %></span>
                                 </div>
                             </div>
                             <p>
@@ -181,8 +181,7 @@
                                 <h1><%=slide_title %></h1>
                                 <hr />
                                 <p>
-                                    Every day new cool free design stuff for download :)
-                                    Try yourself today. Everything is free and easy.
+                                    <%=content %>
                                 </p>
                             </div>
                                 <a class="button green"  href="#">JOIN TO THIS EVENT</a>

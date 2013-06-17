@@ -11,7 +11,7 @@
             month: '',
             day: '',
             year: '',
-            time: '',
+            time: '12:00',
             timestamp: 0
         }
     });

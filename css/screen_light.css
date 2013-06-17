@@ -337,9 +337,10 @@ body {
     .text_time {
         display: inline-block;
         color: #006f87;
-        vertical-align:top;
-        margin-top: 17px;
+        /*vertical-align:top;*/
+        /*margin-top: 17px;*/
         padding-left:33px;
+        width:  130px;
     }
         /*TIME*/
         .text_time .time{
