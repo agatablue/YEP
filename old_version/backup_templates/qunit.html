@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title></title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <!--css-->
+            <link rel="stylesheet" href="css/fonts.css" />
+            <link rel="stylesheet" href="css/fontello.css" />
+            <link rel="stylesheet" href="css/screen_light.css" />
+            <link rel="stylesheet" href="js/libs/fancybox/jquery.fancybox.css" />
+            <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+            <link rel="stylesheet" type="text/css" href="css/screen_mobile.css" media="screen and (max-width: 980px)">
+            <!--css testing-->
+            <link rel="stylesheet" href="js/test/libs/qunit-1.10.0.css" />
+
+            <!--[if gte IE 9]> <style type="text/css"> .gradient { filter: none; }  </style>  <![endif]-->
+            <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+            <!--js-->
+            <script data-main="js/main" src="js/libs/require-jquery.js"></script>
+
+        </head>
+        <body>
+
+        <div id="qunit"></div>
+        <div class="wrapper">
+            <header class="main_header">
+                <div class="main_width">
+                    <a href="#" class="logo"></a>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#" class="closest_event">Closest Event</a></li>
+                        </ul>
+                    </nav>
+                    <div class="panel_login">
+                        <a href="#" class="name_user">@agatajs</a>
+                        <i class="icon-down-dir"></i>
+                    </div>
+                </div>
+            </header>
+            <div class="header_pattern"></div>
+
+            <section class="main_section">
+                <!--backbone el-->
+                <div class="contener middle main_width">
+
+                    <div class="articles"></div>
+                    <div class="edit_panel">
+                        <header>Event Panel</header>
+                        <i class="icon-plus"></i><a class="showForm fancybox" href="#addEvent">Add event</a><i class="icon-down-dir"></i>
+
+                        <div style="width:400px;display: none;">
+                            <form class="addEventForm" id="addEvent" action="#">
+                                <label><span>Title:</span>
+                                    <input id="slide_title" /></label>
+                                <label><span>Subtitle:</span>
+                                    <input id="slide_subheading" /></label>
+                                <label><span>Content:</span>
+                                    <input id="content" /></label>
+                                <label><span>Data:</span>
+                                    <input class="date" id="date" type="text" /></label>
+                                <label><span>Godzina:</span>
+                                    <input class="time" id="time" type="text" /></label>
+                                <button class="addEventButton">Add</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--to do wrzucenia w template-->
+                    <script id="eventTemplate" type="text/template">
+                        <div class="left_side">
+                            <div class="bell_up color_blue"><span class="arrow_down"></span></div>
+                            <img src="images/user_images/img.jpg" class="event_img"/>
+
+                            <div class="user_img_bg">
+                                <span class="frame">
+                                   <img src="<%=leader.avatarUrl %>" class="user_img"/>
+                                </span>
+                            </div>
+                            <h2> <%=leader.name %></h2>
+                            <div style="border-top:1px dashed #dfdfdf;border-bottom:1px dashed  #dfdfdf; background-color: #f6f6f6; padding:8px 0;">
+                                <div class="data_text">
+                                    <span class="day"><%=day %></span>
+                                    <span class="month"><%=month %></span>
+                                    <span class="year"><%=year %></span>
+                                </div>
+                                <div class="text_time">
+                                    <span class="time"><%=time %></span>
+                                    <span class="place">Warsaw</span>
+                                </div>
+                            </div>
+                            <p>
+                                <%=leader.description %>
+                            </p>
+
+                            <span class="read_more">read more</span>
+                            <hr/>
+                            <div class="text_bottom_left">
+                                <span class="text_category">category: <a href="" class="cat_italic">boring</a></span>
+                            </div>
+                            <div class="text_bottom_right">
+                                <i class="icon-comment-alt"></i>
+                                <span class="text_comment">125</span>
+                                <i class="icon-eye"></i>
+                                <span class="text_view">5425</span>
+                            </div>
+
+                            <div class="arrow_left pos_left">
+                                <i class="icon-left-dir"></i>
+                            </div>
+                            <div class="arrow_right pos_right">
+                                <i class="icon-right-dir"></i>
+                            </div>
+                        </div>
+                        <div class="right_site">
+                            <div class="right_site_up">
+                                <h1><%=slide_title %></h1>
+                                <hr />
+                                <p>
+                                    Every day new cool free design stuff for download :)
+                                    Try yourself today. Everything is free and easy.
+                                </p>
+                            </div>
+                            <a class="button green"  href="#">JOIN TO THIS EVENT</a>
+                            <div class="members">
+                                <h3> Attendens </h3>
+                                <%	_.each(member, function (item) { %>
+                                <span class="att"> <%= item.member_name %> </span>
+                                <% });
+                                %>
+                            </div>
+                        </div>
+                    </script>
+                    <!--end backbone template-->
+
+                    <!-- backbone  edit template-->
+                    <script id="eventEditTemplate" type="text/template">
+                        <form action="#">
+                            <input class="slide_title" value="<%= slide_title %>" />
+                            <input class="slide_subheading" value="<%= slide_subheading %>" />
+                            <input class="content" value="<%= content %>" />
+                            <input  value="<%= date %>" />
+                            <button class="save">Save</button>
+                            <button class="cancel">Cancel</button>
+                        </form>
+                    </script>
+
+
+                    <!-- backbone  comment template-->
+                    <script type="text/template" id="commentTemplate">
+                        <div>
+                            <%=title %>
+                            <%=author %>
+                            <%=content %>
+                        </div>
+                    </script>
+
+                </div>
+
+            </section>
+            <div class="push"></div>
+        </div>
+
+        <footer class="main_footer">
+            <div class="main_width">
+                <div class="copyright">
+                    <span>© Copyright 2013 Yep - event  planner.</span>
+                    <span>Hello everyone</span>
+                </div>
+                <div class="footer_menu">
+                    <nav>
+                        <a href=''>FAQ</a>
+                        <a href=''>ABOUT</a>
+                        <a href=''>GITHUB</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        </body>
+        </html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!--css-->
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/fontello.css" />
+
+
+    <link rel="stylesheet" href="css/screen_light.css" />
+    <link rel="stylesheet" href="js/libs/fancybox/jquery.fancybox.css" />
+    <link rel="stylesheet" href="js/libs/datepicker/css/calendar.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/screen_mobile.css" media="screen and (max-width: 980px)">
+
+
+
+    <!--[if gte IE 9]> <style type="text/css"> .gradient { filter: none; }  </style>  <![endif]-->
+    <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--js-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    <script data-main="js/main" src="js/libs/require-jquery.js"></script>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main_header">
+            <div class="main_width">
+                <a href="#" class="logo"></a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#" class="closest_event">Closest Event</a></li>
+                    </ul>
+                </nav>
+                <div class="panel_login">
+                    <a href="#" class="name_user">@agatajs</a>
+                    <i class="icon-down-dir"></i>
+                </div>
+            </div>
+        </header>
+        <div class="header_pattern"></div>
+
+        <section class="main_section">
+
+
+
+            <!--backbone el-->
+            <div class="contener middle main_width">
+
+                <div class="articles"></div>
+                <div class="edit_panel">
+                    <header>Event Panel</header>
+                    <i class="icon-plus"></i><a class="showForm fancybox" href="#addEvent">Add event</a>
+
+                    <div class="wrapper_add_form" id="addEvent" style="display:none;">
+                        <div class="left_panel_form">
+                            <div class="box_general">
+                                <header>General</header>
+                                <div class="box_general_content">
+                                    <h3>Title</h3>
+                                    <textarea rows="2"  class="my_input general" id="slide_title"></textarea>
+                                    <h3>Description</h3>
+                                    <textarea rows="3"  class="my_input general"></textarea>
+                                </div>
+                            </div>
+                            <div class="box_general">
+                                <header>Tags</header>
+                                <div class="box_general_content">
+                                    <textarea rows="2"  class="my_input tags"></textarea>
+                                    <button class="btn add_tag">Add</button>
+                                    <span class="info">Separate tags with commas</span>
+                                </div>
+                            </div>
+                            <div class="upload_files">
+                                <div class="border_dashed">
+                                    <span class="upload_arrow"></span>
+                                    <span class="upload_text">Drop here Your presentation</span>
+                                </div>
+                                <div class="upload_right">
+                                    <span class="or_text">OR</span>
+                                    <button class="btn load_file">Load from disk</button>
+                                </div>
+                            </div>
+                            <div class="upload_files">
+                                <div class="border_dashed">
+                                    <span class="upload_arrow"></span>
+                                    <span class="upload_text">Drop here background</span>
+                                </div>
+                                <div class="upload_right">
+                                    <span class="or_text">OR</span>
+                                    <button class="btn load_file">Load from disk</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_panel_form">
+                            <div class="box_general">
+                                <header>Place & Date & Time</header>
+                                <div class="box_general_content">
+                                        <div class="map_wrapper">
+                                            <div id="map_panel">
+                                                <input id="address"  type="textbox" value="Warszawa" class="my_input">
+                                                <input id="codeFind" type="button" value="Szukaj">
+                                            </div>
+                                            <div id="map-canvas"></div>
+                                        </div>
+                                </div>
+                                <div id="calendar"></div>
+                                <div class="wrap_date">
+                                    <label><span>Date</span>
+                                        <input class="my_input date" type="text" id="datepicker_value" />
+                                    </label>
+                                    <label> <span>Time</span>
+                                       <input class="my_input time" id="time" type="text"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel_save">
+                            <span>Cancel</span>
+                            <button class="btn save_form">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--to do wrzucenia w template-->
+                <script id="eventTemplate" type="text/template">
+                        <div class="left_side">
+                            <div class="bell_up color_blue"><span class="arrow_down"></span></div>
+                            <img src="images/user_images/img.jpg" class="event_img"/>
+
+                            <div class="user_img_bg">
+                                <span class="frame">
+                                   <img src="<%=leader.avatarUrl %>" class="user_img"/>
+                                </span>
+                            </div>
+                            <h2> <%=leader.name %></h2>
+                            <div class="data_time_bg">
+                                <div class="data_text">
+                                    <span class="day"><%=day %></span>
+                                    <span class="month"><%=month %></span>
+                                    <span class="year"><%=year %></span>
+                                </div>
+                                <div class="text_time">
+                                    <span class="time"><%=time %></span>
+                                    <span class="place"><%=address %></span>
+                                </div>
+                            </div>
+                            <p>
+                                <%=leader.description %>
+                            </p>
+                            <p>
+                                <%=timestamp %>
+                            </p>
+
+                            <span class="read_more">read more</span>
+                            <hr/>
+                            <div class="text_bottom_left">
+                                <span class="text_category">category: <a href="" class="cat_italic">boring</a></span>
+                            </div>
+                            <div class="text_bottom_right">
+                                <i class="icon-comment-alt"></i>
+                                <span class="text_comment">125</span>
+                                <i class="icon-eye"></i>
+                                <span class="text_view">5425</span>
+                            </div>
+
+                            <div class="arrow_left pos_left">
+                                <i class="icon-left-dir"></i>
+                            </div>
+                            <div class="arrow_right pos_right">
+                                <i class="icon-right-dir"></i>
+                            </div>
+                        </div>
+                        <div class="right_site">
+                            <div class="right_site_up">
+                                <h1><%=slide_title %></h1>
+                                <hr />
+                                <p>
+                                    <%=content %>
+                                </p>
+                            </div>
+                                <a class="button green"  href="#">JOIN TO THIS EVENT</a>
+                            <div class="members">
+                                <h3> Attendens </h3>
+                                <%	_.each(member, function (item) { %>
+                                   <span class="att"> <%= item.member_name %> </span>
+                                <% });
+                                %>
+                            </div>
+                        </div>
+                   </script>
+                   <!--end backbone template-->
+
+                <!-- backbone  edit template-->
+                <script id="eventEditTemplate" type="text/template">
+                    <form action="#">
+                        <input class="slide_title" value="<%= slide_title %>" />
+                        <input class="slide_subheading" value="<%= slide_subheading %>" />
+                        <input class="content" value="<%= content %>" />
+                        <input  value="<%= date %>" />
+                        <button class="save">Save</button>
+                        <button class="cancel">Cancel</button>
+                    </form>
+               </script>
+
+                <!-- backbone  comment template-->
+                <script type="text/template" id="commentTemplate">
+                    <div>
+                        <%=title %>
+                        <%=author %>
+                        <%=content %>
+                    </div>
+                </script>
+
+            </div>
+
+        </section>
+        <div class="push"></div>
+    </div>
+
+        <footer class="main_footer">
+           <div class="main_width">
+            <div class="copyright">
+                <span>© Copyright 2013 Yep - event  planner.</span>
+                <span>Hello everyone</span>
+            </div>
+            <div class="footer_menu">
+                <nav>
+                    <a href=''>FAQ</a>
+                    <a href=''>ABOUT</a>
+                    <a href=''>GITHUB</a>
+                </nav>
+            </div>
+           </div>
+        </footer>
+
+</body>
+</html>

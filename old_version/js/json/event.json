@@ -1,0 +1,88 @@
+[
+            {
+                "slide_title": "laloud application platform",
+                "slide_subheading": "deploy and scale powerful apps",
+                "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
+                "member": [
+                    { "member_name": "Agata Malec"},
+                    { "member_name": "Damian Sromek"}
+                ],
+                "leader":  {
+                    "name": "Chuck Norris",
+                    "description": "...z półobrotu",
+                    "avatarUrl": "http://www.chucknorris.com/images/89.jpg"
+                },
+                "address": "Stróże, ul. Jana Pawała 12/34",
+                "timestamp": 1367056800
+            },
+            {
+                "slide_title": "Sky application platform",
+                "slide_subheading": "marky and scale powerful apps",
+                "content": "Run any web or background process with any web framework or worker type. Get direct, granular",
+                "member": [
+                    { "member_name": "Chuck Norris"},
+                    { "member_name": "Angelina Jolie"}
+                ],
+                "leader":  {
+                    "name": "Marek Zaionc",
+                    "description": "Czy P=NP?",
+                    "avatarUrl": "http://tcs.uj.edu.pl/pictures.php?surname=Zaionc"
+                },
+                "address": "New York, ul. Jana Pawała 12/34",
+                "timestamp": 1367316000
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w Strefie",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"},
+                    { "member_name": "Jacek Szybowski"},
+                    { "member_name": "Marek Zaionc"},
+                    { "member_name": "Marcin Mazur"},
+                    { "member_name": "Antoni Ligęza"},
+                    { "member_name": "Jan Werewka"},
+                    { "member_name": "Bohdan Borowik"}
+                ],
+                "leader": {
+                    "name": "Agata Malec",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                },
+                "address": "Poznań, ul. Wiejska 12/34",
+                "timestamp": 1371204000
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w Strefie",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"}
+                ],
+                "leader": {
+                    "name": "Ojciec Mateusz",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
+                    "avatarUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/JKRUK_20100629_ARTUR_%C5%BBMIJEWSKI_BUSKO_IMG_5591B.jpg/181px-JKRUK_20100629_ARTUR_%C5%BBMIJEWSKI_BUSKO_IMG_5591B.jpg"
+                },
+                "address": "Warszawa, ul. Nowoursynowska 120/348",
+                "timestamp": 1373716800
+            },
+            {
+                "slide_title": "Biznesowe mixowanie w Strefie",
+                "slide_subheading": "Za nami kolejna doza startupowych emocji związanych",
+                "content": "Za nami kolejna doza startupowych emocji związanych ze StartUp Mixerem. Siódme spotkanie.",
+                "member": [
+                    { "member_name": "Jan Kowalski"},
+                    { "member_name": "Marek Nowak"}
+                ],
+                "leader": {
+                    "name": "Agata Malec",
+                    "description": "Kaliber 44 •&nbsp;I Księga Tajemnicza - Prolog",
+                    "avatarUrl": "http://profile.ak.fbcdn.net/hprofile-ak-snc6/203152_100000545056449_1517691556_q.jpg"
+                },
+                "address": "Kraków, ul. Wiejska 12/34",
+                "timestamp": 1391504000
+            }
+  ]
