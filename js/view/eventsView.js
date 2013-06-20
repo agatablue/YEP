@@ -51,10 +51,11 @@ define(['jquery', 'jqueryui',
                 //after add do this two things: renderLink and showCurrent
                 this.collection.on("add", this.renderLink, this);
                 this.collection.on("add", this.showCurrent, this);
+                this.collection.on("reset", this.render     , this); //change here
 
                //it isn't Backbone event, 'cos the element is no longer inside Backbone View's
                //keep handler on add event
-               this.$el.find('.save_form').on('click', this.addEvent);
+                $(document).find('.save_form').on('click', this.addEvent);
 
                 //view responsible for comment panel
                 this.commentView = new CommentsView({
@@ -177,6 +178,7 @@ define(['jquery', 'jqueryui',
 	    */
             showCurrent: function(){
                 // Some events in database?
+                console.log('inside showCurrent')
                 var info = '';
                 if(this.countEvents() != 0){
                     //check if any of events will be next
