@@ -245,23 +245,49 @@ define(['jquery', 'jqueryui',
                 this.form.find('.my_input').each(function (i, el ){
                     //if input field is not empty, save in new model content from input value.
                     if($(el).val() !== ''){
-
                         formData[el.id] = $(el).val();
-                        console.log(formData[el.id])
+                        console.log('el.id ' + el.id);
+                        console.log( el)
                     }
                 });
                 //I'm setting the new timestamp
 
                 var time = formData['datepicker_value'] + " " + formData['time'];
                 formData['timestamp'] = this.parseDataToTimestamp(time);
-                console.log(formData)
+
                 //and I'm adding event to the collection, comparator is sorting it automaticly
-                this.collection.add(new EventM(formData));
+                var dataNew = new EventM(formData);
+                console.log(formData)
+                this.collection.add(dataNew);
+                this.collection.create(formData, {wait : true});
+
+                //pick (leader: "sdf"
+//                leader_avatarUrl: "sdf"
+//                leader_description: "sdf")
+
+
+
+//                this.collection.create({
+//                    'title': 'tytul nowy',
+//                    'content': 'lalalalala',
+//                    'leader': {
+//                        'name': 'Agata',
+//                        'description': 'kaliber',
+//                        'avatarUrl': 'avatar'
+//                    },
+//                    'address': 'Warszawa',
+//                    'timestamp': 1371769200
+//
+//
+//                })
+
+
                 //I'm testing sorting one more time
                 //TODO: delete this sorting
                 this.collection.sort();
                 //checking the position new timestapmp after sorting
                 var indexInDatabase = _.indexOf(this.getEventTimestamp(), formData['timestamp']);
+
 
                 //move element but only when in databas we have 2 events
                 //and only when you don't want to move it to place numer one

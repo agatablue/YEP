@@ -3,9 +3,9 @@
  define(["jquery", "backbone"], function($, Backbone) {
     return Backbone.Model.extend({
         defaults: {
-            slide_title: "Slide nb.1", 
+            slide_title: "Your title ",
             slide_subheading: "",
-            content: "",
+            content: "Your content",
             member: [],
             leader: [],
             month: '',
