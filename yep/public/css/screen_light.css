@@ -756,12 +756,21 @@ body {
 }
 
 
-.leader_box {
-    border:1px solid red;
+#leader_box {
+    border: 1px solid #DAE4EB;
+    margin-top: 10px;
+    padding: 14px;
 }
 
+#leader_box h3 {
+    font-size: 13px;
+    margin-top:8px;
+}
 
-
+#leader_box .general {
+    height:33px;
+    padding: 8px;
+}
 /*modified fancybox*/
 .fancybox-skin {
     background-color: #E9F0F4 !important;
