@@ -49,9 +49,9 @@ define(['jquery', 'jqueryui',
                         self.showCurrent();
                     }
                 });
-                //after add do this two things: renderLink and showCurrent
-                this.collection.on("add", this.renderLink, this);
-                this.collection.on("add", this.showCurrent, this);
+                //after create new event - do this two things: renderLink and showCurrent
+                this.collection.on("create", this.renderLink, this);
+                this.collection.on("create", this.showCurrent, this);
                 this.collection.on("reset", this.render     , this); //change here
 
                //it isn't Backbone event, 'cos the element is no longer inside Backbone View's
@@ -246,8 +246,6 @@ define(['jquery', 'jqueryui',
                     //if input field is not empty, save in new model content from input value.
                     if($(el).val() !== ''){
                         formData[el.id] = $(el).val();
-                        console.log('el.id ' + el.id);
-                        console.log( el)
                     }
                 });
                 //I'm setting the new timestamp
@@ -256,30 +254,17 @@ define(['jquery', 'jqueryui',
                 formData['timestamp'] = this.parseDataToTimestamp(time);
 
                 //and I'm adding event to the collection, comparator is sorting it automaticly
-                var dataNew = new EventM(formData);
-                console.log(formData)
-                this.collection.add(dataNew);
-                this.collection.create(formData, {wait : true});
-
-                //pick (leader: "sdf"
-//                leader_avatarUrl: "sdf"
-//                leader_description: "sdf")
-
-
-
-//                this.collection.create({
-//                    'title': 'tytul nowy',
-//                    'content': 'lalalalala',
-//                    'leader': {
-//                        'name': 'Agata',
-//                        'description': 'kaliber',
-//                        'avatarUrl': 'avatar'
-//                    },
-//                    'address': 'Warszawa',
-//                    'timestamp': 1371769200
-//
-//
-//                })
+                this.collection.create({
+                    'title': formData.title,
+                    'content': formData.content,
+                    'leader': {
+                        'name': formData.leader,
+                        'description': formData.leader_description,
+                        'avatarUrl': formData.leader_avatarUrl
+                    },
+                    'address': formData.address,
+                    'timestamp': formData.timestamp
+                })
 
 
                 //I'm testing sorting one more time
@@ -304,6 +289,8 @@ define(['jquery', 'jqueryui',
                 }
 			 
                 this.showCurrent();
+                //hide fancybox with event form
+                $('.fancybox-close').trigger('click');
             },
          /*
 		 *  show form 

@@ -756,6 +756,12 @@ body {
 }
 
 
+.leader_box {
+    border:1px solid red;
+}
+
+
+
 /*modified fancybox*/
 .fancybox-skin {
     background-color: #E9F0F4 !important;
